@@ -12,7 +12,7 @@
                 
                 li.innerHTML = "Valor " + numero;
                 
-                if(Math.floor(numero) % 2 > 0) {
+                if(Math.floor(numero) % 2 == 0) {
                     var lista = document.getElementById("listaPares");
                 
                 } else {
@@ -25,8 +25,8 @@
                 
             }
             function limpaItens() {
-                document.getElementById("listaPares").innerHTML = '';;
-                document.getElementById("listaImpares").innerHTML = '';;
+                document.getElementById("listaPares").innerHTML = '';
+                document.getElementById("listaImpares").innerHTML = '';
             }
         </script>
     </head>

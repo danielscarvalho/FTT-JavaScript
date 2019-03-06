@@ -11,7 +11,7 @@
                 
                 li.innerHTML = "Item " + contador;
                 
-                if(contador % 2 > 0) {
+                if(contador % 2 == 0) {
                     var lista = document.getElementById("listaPares");
                 
                 } else {
@@ -24,8 +24,8 @@
                 
             }
             function limpaItens() {
-                document.getElementById("listaPares").innerHTML = '';;
-                document.getElementById("listaImpares").innerHTML = '';;
+                document.getElementById("listaPares").innerHTML = '';
+                document.getElementById("listaImpares").innerHTML = '';
             }
         </script>
     </head>
@@ -34,6 +34,7 @@
         <h2>if</h2>
         <button onclick="novoItem();">Novo Item</button>
         <button onclick="limpaItens();">Limpa Itens</button>
+        
         <ol id="listaPares" style="width: 50%; background-color: aqua">
         </ol>
         
