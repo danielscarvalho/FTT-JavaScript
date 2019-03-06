@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>JavaScript Aula 13</title>
+    <script>
+
+        function getNumberList(quantidade) {
+            
+                let numeros = [];
+                
+                for (i=0; i < quantidade; i++) {
+                    numeros.push(Math.random() * 100);
+                } //for
+                
+                return numeros;
+            }
+            
+            function getMean(numList) {
+                
+                let sum = 0;
+                
+                for(i=0; i<numList.length; i++) {
+                    sum += numList[i];
+                } //for
+                
+                return sum / numList.length;
+            }
+            
+            function gerarNumeros() {
+                
+                limpaItens();
+                
+                var n = getNumberList(parseInt(document.getElementById("inputNumber").value));
+                var m = getMean(n);
+                
+                //console.log(n);
+                //console.log(m);
+                
+                document.getElementById("mediaInfo").innerHTML = m;
+                
+                var lista = document.getElementById("numerosInfo");
+                
+                n.forEach(function(val) { //função anonima
+                    
+                    var li = document.createElement("li");
+                
+                    li.innerHTML = "Valor " + val;
+                
+                    lista.appendChild(li);
+                });
+                
+            }
+            
+            function limpaItens() {
+                document.getElementById("numerosInfo").innerHTML = '';
+                document.getElementById("mediaInfo").innerHTML = '';
+            }
+        </script>
+</head>
+
+<body>
+    <h1>JavaScript Aula 13</h1>
+    <h2>for, Math.random()</h2>
+
+    <button onclick="gerarNumeros();">Gerar números</button>
+    <button onclick="limpaItens();">Limpa Itens</button>
+    <hr>
+    <p><label>Quantidade de números: </label><input id="inputNumber" type="number" value="10" required> </input></p>
+    <p id="mediaInfo" style="width: 50%; background-color: lightgoldenrodyellow">
+    </p>
+    <ol id="numerosInfo" style="width: 50%; background-color: lightpink">
+    </ol>
+</body>
+</html>

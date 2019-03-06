@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JavaScript Aula 11</title>
+        <script>
+            
+            function gerarNumeros() {
+                
+                var numero = Math.random() * 100;
+                
+                var li = document.createElement("li");
+                
+                li.innerHTML = "Valor " + numero;
+                
+                if(Math.floor(numero) % 2 > 0) {
+                    var lista = document.getElementById("listaPares");
+                
+                } else {
+                    var lista = document.getElementById("listaImpares");
+                }
+                
+                lista.appendChild(li);
+                
+                contador++;
+                
+            }
+            function limpaItens() {
+                document.getElementById("listaPares").innerHTML = '';;
+                document.getElementById("listaImpares").innerHTML = '';;
+            }
+        </script>
+    </head>
+    <body>
+        <h1>JavaScript Aula 11</h1>
+        <h2>for, Math.random()</h2>
+        
+        <button onclick="gerarNumeros(10);">Gerar números</button>
+        <button onclick="limpaItens();">Limpa Itens</button>
+        
+        <ol id="listaPares" style="width: 50%; background-color: lightgoldenrodyellow">
+        </ol>
+        
+        <ol id="listaImpares" style="width: 50%; background-color: lightpink">
+        </ol>
+    </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>JavaScript Aula 18</title>
+    <script>
+        var apiMessage;
+        
+        function callApi() {
+            
+            var query = document.getElementById("busca").value;
+            
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    apiMessage = JSON.parse(this.responseText); //importa o arquivo texto inteiro em um único string
+                    document.getElementById("jsonData").innerText = this.responseText;
+                    mostraResposta(apiMessage);
+                    
+                }
+            };
+            xhttp.open("GET", "https://api.duckduckgo.com/?format=json&pretty=1&q=" + query, true);
+            xhttp.send();
+            
+            
+        }
+     
+        function mostraResposta(resp) {
+            
+            var firstText = resp.RelatedTopics[0].Text;
+            var pTag = document.createElement("p");
+            
+            pTag.innerText = firstText;
+            
+            document.getElementById("resposta").appendChild(pTag);
+
+        }
+        
+    </script>
+    <style>
+        pre { background-color: lemonchiffon;
+        }    
+    </style>
+
+</head>
+
+<body>
+    <h1>JavaScript Aula 18</h1>
+    <h2>JSON, API, AJAX - Asynchronous JavaScript And XML</h2>
+    <input type="search" id="busca" placeholder="O que você quer saber?" required></input>
+    <button onclick="callApi();">Get data</button>
+    <div id="resposta"></div>
+    <pre id="jsonData"></pre>
+    </body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JavaScript Aula 19</title>
+    <script>
+        var key = 'a471bfae6bea4870828911cc205e47e9'; //Conseguir uma chave no site da API...
+        var newsSearch = document.getElementById("news-search");
+        var newsSearchText;
+        var url;
+
+        function createNews(nData) {
+
+            for (i in nData.articles) {
+                var a = document.createElement("ARTICLE"); // Create a <ARTICLE> element
+                a.setAttribute("class", "card");
+
+                var nImg = document.createElement("IMG"); // Create a <H2> element
+                var h2 = document.createElement("H2"); // Create a <H2> element
+                var desc = document.createElement("P"); // Create a <H2> element
+                var ath = document.createElement("AUTHOR"); // Create a <AUTHOR> element
+
+                nImg.src = nData.articles[i].urlToImage; // Create a text node
+                nImg.style.width = '380px'; //The full width is 400px, 10px of border left and right
+                h2.innerText = nData.articles[i].title; // Create a text node
+                desc.innerText = nData.articles[i].description;
+                ath.innerText = "by " + nData.articles[i].author + " - " + nData.articles[i].source.name;
+
+                a.appendChild(nImg);
+                a.appendChild(h2); // Append the text to 
+                a.appendChild(desc);
+                a.appendChild(ath);
+
+                document.getElementById("noticias").appendChild(a);
+
+            } //for
+
+        }
+
+        function reloadPage() {
+
+            newsSearch = document.getElementById("news-search");
+            newsSearchText = newsSearch.options[newsSearch.selectedIndex].value;
+
+            url = 'https://newsapi.org/v2/everything?q=' + newsSearchText + '&sortBy=publishedAt&apiKey=' + key;
+            document.getElementById("noticias").innerHTML = "";
+            console.log(url);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.onload = function() {
+
+                if (xhr.status >= 200 && xhr.status < 300) {
+
+                    console.log('success!', JSON.parse(xhr.responseText));
+                    var newsData = JSON.parse(xhr.responseText);
+                    createNews(newsData);
+
+                } else {
+                    console.log('Ops!!! The request failed!');
+                }
+
+                console.log('Here we are...');
+            };
+
+            xhr.open('GET', url);
+            xhr.send();
+        }
+        
+    </script>
+    <style>
+        body {
+            font-family: Lora, serif;
+        }
+
+        header {
+            background-color: 000;
+            color: fff;
+        }
+
+        .noticias {
+            width: 400px;
+            display: block;
+            padding: 16px;
+        }
+
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            width: 400;
+            porder: 10px;
+            padding: 10px;
+            background-color: 101010;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.9);
+        }
+
+        author {
+            color: darkgray;
+        }
+    </style>
+
+</head>
+
+<body onload="reloadPage();">
+    <h1>JavaScript Aula 19</h1>
+    <h2>JSON, API, AJAX - Asynchronous JavaScript And XML</h2>
+
+    <header>
+        <p>
+            <label>News WEB Search: </label>
+            <select id="news-search" onchange="reloadPage();">
+                <option value="blockchain">Blockchain</option>
+                <option value="machine+learning">Machine Learning</option>
+                <option value="artificial+inteligence">Artificial Inteligence</option>
+                <option value="robots">Robots</option>
+                <option value="hackers">Hackers</option>
+                <option value="bitcoin" selected>Bitcoin</option>
+            </select>
+        </p>
+    </header>
+    <div class="noticias" id="noticias"></div>
+
+
+</body>
+
+</html>

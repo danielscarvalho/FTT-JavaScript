@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>JavaScript Aula 16</title>
+    <script>
+        function loadCsv() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("dados").innerHTML = this.responseText;
+                    document.getElementById("size").innerHTML = document.getElementById("dados").innerHTML.length;
+                }
+            };
+            xhttp.open("GET", "data/FL_insurance_sample.csv", true);
+            xhttp.send();
+        }
+    </script>
+</head>
+
+<body>
+    <h1>JavaScript Aula 16</h1>
+    <h2>AJAX - Asynchronous JavaScript And XML</h2>
+    <button onclick="loadCsv()">Ler CSV</button>
+    <p id="size"></p>
+    <pre id="dados"></pre>
+</body>
+</html>

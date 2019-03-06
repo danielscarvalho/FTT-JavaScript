@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JavaScript Aula 11</title>
+        <script>
+            var contador = 100;  //Variável global
+            
+            function novoItem() {
+                
+                var li = document.createElement("li");
+                
+                li.innerHTML = "Item " + contador;
+                
+                if(contador % 2 > 0) {
+                    var lista = document.getElementById("listaPares");
+                
+                } else {
+                    var lista = document.getElementById("listaImpares");
+                }
+                
+                lista.appendChild(li);
+                
+                contador++;
+                
+            }
+            function limpaItens() {
+                document.getElementById("listaPares").innerHTML = '';;
+                document.getElementById("listaImpares").innerHTML = '';;
+            }
+        </script>
+    </head>
+    <body>
+        <h1>JavaScript Aula 11</h1>
+        <h2>if</h2>
+        <button onclick="novoItem();">Novo Item</button>
+        <button onclick="limpaItens();">Limpa Itens</button>
+        <ol id="listaPares" style="width: 50%; background-color: aqua">
+        </ol>
+        
+        <ol id="listaImpares" style="width: 50%; background-color: aqua">
+        </ol>
+    </body>
+</html>

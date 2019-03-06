@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>JavaScript Aula 30</title>
+    <script>
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        function canvasDraw() {
+            var c = document.getElementById("theCanvas");
+            var ctx = c.getContext("2d");
+            ctx.moveTo(0, 0);
+            ctx.strokeStyle = getRandomColor();
+            
+            for (i = 0; i < 100; i++) {
+                
+                ctx.lineTo(Math.floor(Math.random() * 800), Math.floor(Math.random() * 600));
+
+            }
+            
+            ctx.stroke();
+        }
+    </script>
+</head>
+
+<body onload="canvasDraw();">
+    <h1>JavaScript Aula 30</h1>
+    <h2>Canvas</h2>
+    <canvas id="theCanvas" width="800" height="600" style="border:1px solid black;">
+        Your browser does not support the HTML5 canvas tag.</canvas>
+
+
+
+</body>
+</html>

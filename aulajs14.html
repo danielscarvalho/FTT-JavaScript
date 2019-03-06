@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Aula 14</title>
+    <script>
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        function pIgual() {
+
+            var pList = document.getElementsByTagName("p");
+
+            for (i = 0; i < pList.length; i++) {
+                pList[i].style.backgroundColor = "lightgreen";
+            }
+        }
+
+        function pDiferente() {
+            var pList = document.getElementsByTagName("p");
+
+            for (i = 0; i < pList.length; i++) {
+                pList[i].style.backgroundColor = getRandomColor();
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>JavaScript Aula 14</h1>
+    <h2>getElemetnByTagName</h2>
+    <button onclick="pIgual();">Tudo igual</button>
+    <button onclick="pDiferente();">Tudo Diferente</button>
+
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at magna in dolor venenatis faucibus consectetur et elit. Praesent auctor faucibus lectus et pulvinar. Integer egestas metus vitae tellus vestibulum, accumsan tempor leo suscipit. Nullam ultrices et turpis ut eleifend. Nullam vel pulvinar mauris. Fusce in massa massa. Quisque porttitor sem et leo venenatis vehicula. Integer vel porttitor arcu. Maecenas ullamcorper congue suscipit. Nulla tempor feugiat scelerisque. Aenean ultricies quis mauris non lacinia. Vestibulum sed diam in neque faucibus rhoncus non sit amet elit. Nunc vestibulum quam blandit lacus malesuada luctus. Nulla viverra risus orci, a congue enim efficitur et.
+    </p>
+    <p>
+        Sed non urna dignissim, fringilla dolor a, interdum diam. Nam ac luctus metus. Cras convallis lorem id cursus tristique. Aliquam sit amet lectus pretium, elementum ligula eget, malesuada libero. Maecenas et urna id diam molestie maximus. Fusce vel ante et mauris imperdiet iaculis. Quisque lectus augue, ullamcorper et mollis a, aliquam in ante. Vestibulum egestas porttitor pellentesque. Donec nibh lacus, aliquet vitae feugiat sit amet, mattis et nisl. Nam euismod mattis elit. Nunc eget dictum odio, porttitor tempor lorem. Nullam diam purus, fermentum quis ultrices bibendum, aliquet vitae massa. Vestibulum varius sit amet libero a bibendum. Aenean rhoncus turpis lectus, id maximus tellus lacinia nec.
+    </p>
+    <p>
+        Nullam mollis vehicula efficitur. Pellentesque metus nunc, aliquam eget accumsan sed, imperdiet eget sapien. Praesent elementum elementum urna, a tristique augue. Ut lacinia orci nisi, eget euismod ex consectetur sit amet. Mauris feugiat sit amet magna aliquet volutpat. Donec quis mauris eget purus sagittis tincidunt eu id odio. Praesent lacinia, odio id pharetra ultricies, justo lorem finibus lorem, a consequat ipsum dolor nec felis. Quisque eu iaculis augue. Maecenas et libero eget lectus venenatis faucibus. Maecenas et scelerisque turpis. Duis congue ut lacus vel euismod. Etiam consectetur iaculis nibh, sed imperdiet ante consequat nec. Donec vitae felis finibus turpis dignissim gravida. In metus enim, dictum in mauris non, suscipit lobortis felis. Ut faucibus tellus sit amet ultricies pharetra. Ut maximus dolor sollicitudin vestibulum fringilla.
+    </p>
+    <p>
+        Sed et velit tortor. In hac habitasse platea dictumst. Vestibulum sit amet tincidunt ex. Fusce sed neque tempor, interdum neque id, condimentum ante. Proin non augue iaculis, sollicitudin est sit amet, finibus lacus. Phasellus dignissim dolor dolor, quis convallis ante tincidunt eget. Donec viverra consectetur leo et molestie. Curabitur accumsan urna vitae orci fermentum tristique. Etiam urna turpis, porta et quam ut, venenatis porttitor diam. Vivamus velit metus, vulputate sed ligula eu, elementum bibendum dui. Donec vitae nunc ac eros pulvinar ullamcorper. Duis tempor sapien leo, eu porttitor dolor aliquet vitae. Proin volutpat euismod lectus quis sagittis. Praesent eu magna et felis euismod ornare sed bibendum eros. Aliquam est magna, dapibus at lorem et, facilisis consectetur sem. Quisque id interdum lectus.
+    </p>
+    <p>
+        Donec at turpis id ex aliquam congue eu non sapien. Nunc congue et tortor et maximus. Morbi tincidunt eget turpis eu laoreet. In ultricies, purus vitae pellentesque ultrices, massa nisi consequat sapien, non dictum arcu risus eu erat. Etiam id est diam. Vivamus pharetra quam non massa mollis, non iaculis nunc fermentum. Maecenas a dolor pharetra ligula molestie congue. Mauris gravida ex interdum dui varius, at laoreet nunc finibus. Vivamus nec augue id sem vulputate viverra sit amet non mi. Etiam egestas porta est, sed ullamcorper lorem rhoncus a. In sapien magna, euismod eu tellus ut, gravida ornare massa.
+    </p>
+</body>
+</html>

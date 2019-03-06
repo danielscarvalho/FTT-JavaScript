@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JavaScript Aula 10</title>
+        <script>
+            var contador = 100;  //Variável global
+            
+            function novoItem() {
+                
+                var lista = document.getElementById("lista");
+                var li = document.createElement("li");
+                
+                li.innerHTML = "Item " + contador;
+                lista.appendChild(li);
+                
+                contador++;
+                
+            }
+            function limpaItens() {
+                var lista = document.getElementById("lista");
+                lista.innerHTML = '';
+            }
+        </script>
+    </head>
+    <body>
+        <h1>JavaScript Aula 10</h1>
+        <h2>createElement</h2>
+        <button onclick="novoItem();">Novo Item</button>
+        <button onclick="limpaItens();">Limpa Itens</button>
+        <ol id="lista" style="width: 50%; background-color: aqua">
+        </ol>
+    </body>
+</html>
