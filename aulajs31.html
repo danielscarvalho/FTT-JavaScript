@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function getImage() {
+
+    console.log("getting image...");
+
+    var myImage = document.getElementById('imgplace');
+
+    var myHeaders = new Headers();
+
+    var myInit = { method: 'GET',
+               headers: myHeaders,
+               mode: 'cors',
+               cache: 'default' };
+
+    fetch('https://picsum.photos/200/300', myInit)
+        .then(function(response) {
+            return response.blob();
+        })
+        .then(function(myBlob) {
+            var objectURL = URL.createObjectURL(myBlob);
+            myImage.src = objectURL;
+        });
+} //getImage
+
+</script>
+</head>
+<body>
+<h1>Consome API que fornece imagem</h1>
+<p>
+Referências:
+<ul>
+    <li><a target="_new" href="https://developer.mozilla.org/pt-BR/docs/Web/API/Fetch_API/Using_Fetch">"fetch - ECMA Script 6"</a></li>
+    <li><a target="_new" href="https://books.goalkicker.com/JavaScriptBook/">Livro sobre JavaScript</li>
+    <li><a target="_new" href="https://www.w3schools.com/js/default.asp">W3CSchools</a>        
+    <li><a target="_new" href='https://picsum.photos/'>Lorem Picsum</a></li>
+</ul>
+</p>
+<button onclick="getImage()";>Get Image</button>
+<div id="imglist">
+    <hr>
+    <img id="imgplace" alt="Random Image">
+</div>
+
+</body>
+</html>
