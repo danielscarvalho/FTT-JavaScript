@@ -3,14 +3,21 @@
 
 <head>
     <title>JavaScript Aula 20</title>
-    <script>    
+    <script>
+        
+    const createLiTagWithText = text => {
+        const li = document.createElement("li");
+        li.innerHTML = text;
+        return li;
+    }
+        
     function pageSetup() {
         console.log("Page setup...");
-    }
+    }   
         
     function newItem() {
         
-        const materials = [
+        const qElements = [
             'Hydrogen',
             'Helium',
             'Lithium',
@@ -19,15 +26,21 @@
             'Carbon'
             ];
 
-        let oltag = document.getElementById("oltag");
+        let olTag = document.getElementById("oltag");
         
-        console.log(materials.map(material => material.length));
+        console.log(qElements.map(element => [element.length, element]));
 
         //Nada de FOR - programação funcional
-        materials.map(material => { let litag = document.createElement("li");
-                                    litag.innerHTML = material;
-                                    oltag.appendChild(litag) });
-                              
+        
+        /*
+        // outra opção...
+        qElements.map(element => { let liTag = document.createElement("li");
+                                    liTag.innerHTML = element;
+                                    olTag.appendChild(litag) });
+        */
+                
+        qElements.map(element => olTag.appendChild(createLiTagWithText(element)));
+                         
     }
     </script>
     <style>
@@ -36,13 +49,13 @@
 </head>
 
 <body onload="pageSetup();">
+    
     <h1>JavaScript Aula 20</h1>
     <h2>Arrow Function</h2>
     <button onclick="newItem();">List Materials</button>
     <hr>
     <ol id="oltag">
     </ol>
-
 
 </body>
 
