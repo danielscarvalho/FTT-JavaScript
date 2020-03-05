@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JavaScript Aula 20</title>
+    <script>    
+    function pageSetup() {
+        console.log("Page setup...");
+    }
+        
+    function newItem() {
+        
+        const materials = [
+            'Hydrogen',
+            'Helium',
+            'Lithium',
+            'Beryllium',
+            'Oxygen',
+            'Carbon'
+            ];
+
+        let oltag = document.getElementById("oltag");
+        
+        console.log(materials.map(material => material.length));
+
+        //Nada de FOR - programação funcional
+        materials.map(material => { let litag = document.createElement("li");
+                                    litag.innerHTML = material;
+                                    oltag.appendChild(litag) });
+                              
+    }
+    </script>
+    <style>
+    </style>
+
+</head>
+
+<body onload="pageSetup();">
+    <h1>JavaScript Aula 20</h1>
+    <h2>Arrow Function</h2>
+    <button onclick="newItem();">List Materials</button>
+    <hr>
+    <ol id="oltag">
+    </ol>
+
+
+</body>
+
+</html>
