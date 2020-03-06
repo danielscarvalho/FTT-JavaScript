@@ -45,13 +45,18 @@
              if (financial.hasOwnProperty(key2)) {
                  let $eletd = document.createElement("td");
                  let textValue = financial[key2];
-
-                 /*
-                 if (textValue.includes(".jpg")) {
-                     console.log(textValue); }
-                 */
                  
-                 $eletd.textContent = textValue;
+                 if (String(textValue).indexOf(".jpg") !== -1) {
+                     
+                     //console.log("View: " + textValue + " - " + (typeof textValue)); 
+                     let imgLogo = new Image(); 
+                     imgLogo.src = textValue;
+                     $eletd.appendChild(imgLogo);
+                     
+                 } else {
+                     $eletd.textContent = textValue;
+                 }
+                 
                  $line.appendChild($eletd);
              }
          }
