@@ -46,7 +46,8 @@
                  let $eletd = document.createElement("td");
                  let textValue = financial[key2];
                  
-                 if (String(textValue).indexOf(".jpg") !== -1) {
+                 //if (String(textValue).indexOf(".jpg") !== -1) {
+                 if (String(textValue).includes(".jpg")) {
                      
                      //console.log("View: " + textValue + " - " + (typeof textValue)); 
                      let imgLogo = new Image(); 
