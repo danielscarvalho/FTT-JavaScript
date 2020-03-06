@@ -60,13 +60,15 @@
                  $line.appendChild($eletd);
              }
          }
-         $body.appendChild($line)
-
+         $body.appendChild($line);
+         
          $table.appendChild($body);
 
      }
 
      document.body.appendChild($table);
+     document.body.appendChild(document.createElement("br"));
+
  }
 
  function getRequest(url, success) {
