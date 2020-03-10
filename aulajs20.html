@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JavaScript Aula 20</title>
+    <script>
+        
+    const createLiTagWithText = text => {
+        const li = document.createElement("li");
+        li.innerHTML = text;
+        return li;
+    }
+        
+    function pageSetup() {
+        console.log("Page setup...");
+    }   
+        
+    function newItem() {
+        
+        const qElements = [
+            'Hydrogen',
+            'Helium',
+            'Lithium',
+            'Beryllium',
+            'Oxygen',
+            'Carbon'
+            ];
+
+        let olTag = document.getElementById("oltag");
+        
+        console.log(qElements.map(element => [element.length, element]));
+
+        //Nada de FOR - programação funcional
+        
+        /*
+        // outra opção...
+        qElements.map(element => { let liTag = document.createElement("li");
+                                    liTag.innerHTML = element;
+                                    olTag.appendChild(litag) });
+        */
+                
+        qElements.map(element => olTag.appendChild(createLiTagWithText(element)));
+                         
+    }
+    </script>
+    <style>
+    </style>
+
+</head>
+
+<body onload="pageSetup();">
+    
+    <h1>JavaScript Aula 20</h1>
+    <h2>Arrow Function</h2>
+    <button onclick="newItem();">List Materials</button>
+    <hr>
+    <ol id="oltag">
+    </ol>
+
+</body>
+
+</html>
