@@ -7,7 +7,7 @@ References to learn JavaScript (ECMA Script 6):
 - https://www.w3schools.com/
 - https://books.goalkicker.com/
 
-Code editors for front-end WEB development:
+Code editors for front-end WEB development multiplatform (Linux, Mac, Windows):
 
 - Adobe Brackets http://brackets.io
 - MS Visual Studio Code https://code.visualstudio.com
