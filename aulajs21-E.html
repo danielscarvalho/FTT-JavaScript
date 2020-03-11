@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JavaScript Aula 21</title>
+    <script>
+    //https://flaviocopes.com/fetch-api/
+    //https://scotch.io/tutorials/how-to-use-the-javascript-fetch-api-to-get-data
+
+    var jsonMessagte;
+
+        
+    function pageSetup() {
+        console.log("Page setup...");
+    }   
+        
+    function callApi() {
+        
+        var url = 'https://api.github.com/users/danielscarvalho'
+        
+
+        fetch(url) // Call the fetch function passing the url of the API as a parameter
+            .then(function(response) {
+                jsonMessage = response.json(); //response.text();
+                document.getElementById('codeBox').innerHTML = jsonMessage;
+                // Your code for handling the data you get from the API
+            })
+            .catch(function(error) {
+                // This is where you run code if the server returns any errors
+                console.log(error);
+            });
+                         
+    }
+    </script>
+    <style>
+    </style>
+
+</head>
+
+<body onload="pageSetup();">
+    
+    <h1>JavaScript Aula 21</h1>
+    <h2>Arrow Function</h2>
+    <button onclick="callApi();">Call API</button>
+    <hr>
+    <pre id="codeBox">
+    </pre>
+
+</body>
+
+</html>
