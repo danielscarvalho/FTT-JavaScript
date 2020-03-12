@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JavaScript Aula 26</title>
+    <script>
+        function saveText() {
+
+            localStorage.setItem(document.getElementById("nomeInput").value, document.getElementById("textArea").value);
+
+        }
+
+        function clearText() {
+            localStorage.removeItem(document.getElementById("nomeInput").value);
+
+            document.getElementById("textArea").innerHTML = "";
+        }
+    </script>
+    <style>
+    </style>
+
+</head>
+
+<body>
+
+    <h1>JavaScript Aula 26</h1>
+    <h2>Local Storage - Textarea</h2>
+    <hr>
+    <form>
+        <p><label>Nome da "chave/key": </label><input type="text" value="testão" id="nomeInput" required placeholder="Informe o nome da chave"></p>
+        <p><label>Texto "valor/value": </label><br><textarea id="textArea" name="story" rows="20" cols="80" placeholder="Informe o texto... valor...">
+Senta que lá vem a história...
+</textarea></p>
+        <p><button onclick="saveText()">Save</button></p>
+    </form>
+    <p><button onclick="clearText()">Reset Value</button></p>
+    <p>
+        Referência:<br>
+        <a href="https://www.w3schools.com/jsref/prop_win_localstorage.asp">https://www.w3schools.com/jsref/prop_win_localstorage.asp</a>
+        <p>
+            As propriedades localStorage e sessionStorage permitem salvar pares de chave/valor (key/value) no navegador da WEB.</p>
+        <p>
+            O objeto localStorage armazena dados sem data de validade. Os dados persistem no navegador, permanecem quando o navegador for fechado e estarão disponíveis por dias, semanas ou anos.
+        </p>
+        <p>
+            Dica: A propriedade sessionStorage armazena dados para uma sessão (os dados são perdidos quando a guia do navegador é fechada).
+        </p>
+        <p>
+            No browser veja em Application, Local Storage as variávies registradas (Ctrl + Shift + i)
+        </p>
+        <p>
+            É possível armazenar estururas de dados tal como JSON em localStorage, convertendo para texto.
+        </p>
+</body>
+
+</html>

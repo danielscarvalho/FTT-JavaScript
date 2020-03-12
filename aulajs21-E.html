@@ -8,23 +8,24 @@
     //https://scotch.io/tutorials/how-to-use-the-javascript-fetch-api-to-get-data
 
     var jsonMessagte;
-
         
     function pageSetup() {
         console.log("Page setup...");
     }   
-        
+
+    function showMessage(message){
+        document.getElementById("codeBox").innerHTML = JSON.stringify(message);
+    }
+
     function callApi() {
         
-        var url = 'https://api.github.com/users/danielscarvalho'
-        
+        var gitUserName = document.getElementById("gitUserName").value;
+        var url = 'https://api.github.com/users/' + gitUserName;
 
         fetch(url) // Call the fetch function passing the url of the API as a parameter
-            .then(function(response) {
-                jsonMessage = response.json(); //response.text();
-                document.getElementById('codeBox').innerHTML = jsonMessage;
-                // Your code for handling the data you get from the API
-            })
+            .then(response => response.json())
+            //.then(data => document.getElementById('codeBox').innerHTML = data)
+            .then(data => showMessage(data))
             .catch(function(error) {
                 // This is where you run code if the server returns any errors
                 console.log(error);
@@ -41,10 +42,11 @@
     
     <h1>JavaScript Aula 21</h1>
     <h2>Arrow Function</h2>
+    <p><label>GitHub user: </label><input type="text" id="gitUserName" required value="danielscarvalho"></p>
     <button onclick="callApi();">Call API</button>
     <hr>
-    <pre id="codeBox">
-    </pre>
+    <p id="codeBox">
+    </p>
 
 </body>
 
