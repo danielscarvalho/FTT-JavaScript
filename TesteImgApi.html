@@ -1,0 +1,21 @@
+<html>
+<head>
+<script>
+function setImage(msg) {
+    console.log(msg); //Só para debug!!
+    document.getElementById("dogImage").src = msg["message"];
+}
+function getImageInfo() {
+    fetch("https://dog.ceo/api/breeds/image/random") //WEB API -  HTTP
+    .then(request => request.text()) //Retorna o objeto request
+    .then(data => setImage(JSON.parse(data))) //Obtem os dados e transforma em JSON
+}
+
+</script>
+</head>
+<body>
+<button onclick="getImageInfo();">Get Image</button>
+<hr>
+<img id="dogImage" alt="Dog image..."></img>
+</body>
+</html>

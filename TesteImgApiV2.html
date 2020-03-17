@@ -1,0 +1,34 @@
+<html>
+<head>
+<style>
+    li {list-style-type: none;}
+    img {width:300px;}
+</style>
+<script>
+function setImage(msg) {
+    console.log(msg); //Só para debug!!
+    
+    liTag = document.createElement("li");
+    imgTag = document.createElement("img");
+
+    imgTag.src = msg["message"];
+
+    liTag.appendChild(imgTag);
+
+    document.getElementById("dogList").appendChild(liTag);
+}
+function getImageInfo() {
+    fetch("https://dog.ceo/api/breeds/image/random") //WEB API -  HTTP
+    .then(request => request.text()) //Retorna o objeto request
+    .then(data => setImage(JSON.parse(data))) //Obtem os dados e transforma em JSON
+}
+
+</script>
+</head>
+<body>
+<button onclick="getImageInfo();">Get Image</button>
+<hr>
+<ul id="dogList">
+</ul>
+</body>
+</html>
