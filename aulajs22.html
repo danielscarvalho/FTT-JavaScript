@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JavaScript Aula 22</title>
+    <script>
+
+        function setColor() {
+            controlLog.value = "setColor - " + controlColor.value;
+            console.log(controlLog.value);
+            circleObject.setAttribute("fill", controlColor.value);
+        }
+
+        function setStrokeColor() {
+            controlLog.value ="setStrokeColor - " + controlStrokeColor.value;
+            console.log(controlLog.value);
+            circleObject.setAttribute("stroke", controlStrokeColor.value);
+        }
+        
+        function setStrokeWidth() {
+            controlLog.value = "setStrokeWidth - " + controlStrokeWidth.value;
+            console.log(controlLog.value);
+            circleObject.setAttribute("stroke-width", controlStrokeWidth.value);
+        }
+
+        function setRadius() {
+            controlLog.value = "setRadius - " + controlRadius.value;
+            console.log(controlLog.value);
+            circleObject.setAttribute("r", controlRadius.value);
+
+        }
+
+        function setX() {
+            controlLog.value = "setX - " + controlX.value;
+            console.log(controlLog.value);
+            circleObject.setAttribute("cx", controlX.value);
+
+        }
+
+        function setY() {
+            controlLog.value = "setY - " +  controlY.value
+            console.log(controlLog.value);
+            circleObject.setAttribute("cy", controlY.value);
+        }
+
+        function setup() {
+
+            let circleObject = document.getElementById("circleObject");
+
+            let controlColor = document.getElementById("controlColor");
+            let controlStrokeColor = document.getElementById("controlStrokeColor");
+            let controlStrokeWidth = document.getElementById("controlStrokeWidth");
+            let controlRadius = document.getElementById("controlRadius");
+            let controlX = document.getElementById("controlX");
+            let controlY = document.getElementById("controlY");
+            let controlLog = document.getElementById("controlLog");
+
+            controlColor.addEventListener("change", setColor, false);
+            controlStrokeColor.addEventListener("change", setStrokeColor, false);
+            controlStrokeWidth.addEventListener("change", setStrokeWidth, false);
+            controlRadius.addEventListener("change", setRadius, false);
+            controlX.addEventListener("change", setX, false);
+            controlY.addEventListener("change", setY, false);
+
+            console.log("Setup done!");
+
+        } //setup
+
+        console.log("start...");
+
+        window.addEventListener("load", setup, false);
+
+    </script>
+    <style>
+        body {background-color: black;
+      color: white;
+      font-family: Verdana, Arial}
+    </style>
+
+</head>
+
+<body>
+
+    <h1>JavaScript Aula 22</h1>
+    <h2>SVG Control 1</h2>
+    <hr>
+    <div>
+        <fieldset>
+        <p><label>Color: </label><input type="color" id="controlColor" value="#FF0000"></p>
+        <p><label>Stroke Color: </label><input type="color" id="controlStrokeColor" value="#FFFFFF"></p>
+        <p><label>Stroke Width: </label><input type="range" id="controlStrokeWidth" min ="0" max="100" step ="1" value ="3"></p>
+        <p><label>Radius: </label><input type="range" id="controlRadius" min ="0" max="400" step ="1" value ="40"></p>
+        <p><label>X Position: </label><input type="range" id="controlX" min ="0" max="400" step ="1" value ="200"></p>
+        <p><label>Y Position: </label><input type="range" id="controlY" min ="0" max="400" step ="1" value ="200"></p>
+        <p><label>Last Chage: </label><input type="text" id="controlLog" value="" readonly></p>
+        </fieldset>
+      </div>
+      <svg id="graphic2d" height="400" width="400">
+        <circle id="circleObject" cx="200" cy="200" r="40" stroke="white" stroke-width="3" fill="red" />
+      </svg>
+      
+</body>
+
+</html>
