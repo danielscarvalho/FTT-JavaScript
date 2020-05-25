@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JavaScript Aula 23</title>
+    <script>
+
+        function getRandomArbitrary(min, max) {
+            return Math.floor(Math.random() * (max - min) + min);
+        }
+
+        function getRandomPoint() {
+            return " " + getRandomArbitrary(0,400) + "," + getRandomArbitrary(0,400);
+        }
+
+        function nextPoint() {
+
+            
+            var point = svgGraphic.createSVGPoint();
+
+            point.x = getRandomArbitrary(0,400);
+            point.y = getRandomArbitrary(0,400);
+
+            svgPolyline.points.appendItem(point);
+
+            console.log(point);
+
+        }
+
+        function resetPoint() {
+
+            //TODO: Make it work, resset the image area...
+            var point = svgGraphic.createSVGPoint();
+
+            point.x = 200;
+            point.y = 200;
+
+            svgPolyline.points.appendItem(point);
+
+            console.log("Reset...");
+
+        }
+
+        function setup() {
+
+            let svgGraphic = document.getElementById('svgGraphic');
+
+            let svgPolyline = document.getElementById("svgPolyline");
+
+            let controlButton = document.getElementById("nextPoint");
+            let resetButton = document.getElementById("resetPoint");
+
+            controlButton.addEventListener("click", nextPoint, false);
+            resetButton.addEventListener("click", resetPoint, false);
+            
+            console.log("Setup done!");
+
+        } //setup
+
+        console.log("start...");
+
+        window.addEventListener("load", setup, false);
+
+    </script>
+    <style>
+        body {background-color: black;
+      color: red;
+      font-family: Verdana, Arial}
+    </style>
+
+</head>
+
+<body>
+
+    <h1>JavaScript Aula 23</h1>
+    <h2>SVG Control 2 - Random Walk</h2>
+    <hr>
+    <div>
+        <fieldset>
+        <p><label>Next Point: </label><button id="nextPoint">New</button></p>
+        <p><label>Reset Point: </label><button id="resetPoint">Reset</button></p>
+        </fieldset>
+      </div>
+      <svg id="svgGraphic" height="400" width="400">
+        <polyline id="svgPolyline" points="200 200"
+        style="fill:none;stroke:white;stroke-width:3" />
+      </svg>
+      
+</body>
+
+</html>
