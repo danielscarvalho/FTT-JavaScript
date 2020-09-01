@@ -16,3 +16,5 @@ Code editors for front-end WEB development multiplatform (Linux, Mac, Windows):
 List of public WEB APIs: https://github.com/public-apis/public-apis
 
 Set LAB proxy for Git: git config --global http.proxy http://<usuário>:<senha>@10.5.17.105:8080
+  
+![JavaScript Wash Hands](https://img.devrant.com/devrant/rant/r_1848732_zGqHg.jpg)
