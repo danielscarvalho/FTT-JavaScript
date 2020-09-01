@@ -3,27 +3,35 @@
     <head>
         <title>JavaScript Aula 09</title>
         <script>
-            var cx = document.getElementById("caixa");
+
+            var cx; //Variável global
+
+            function carregado() {
+                cx = document.getElementById("caixa"); //DOM
+            }
 
             function verde() {
                 cx.style.backgroundColor = "green";
                 cx.innerHTML = "Verde";
             }
+            
             function vermelho() {
                 cx.style.backgroundColor = "red";
                 cx.innerHTML = "Vermelho";
             }
+
         </script>
     </head>
-    <body>
+    <body onload="carregado();">
         <h1>JavaScript Aula 09</h1>
         <h2>style</h2>
         <button onclick="verde();">Verde</button>
         <button onclick="vermelho();">Vermelho</button>
         <p id="caixa" style="width: 100px; height: 100px; background-color: aqua">
+            Caixa 1
         </p>
         <p id="caixa">
-        Caixa 2
+            Caixa 2
         </p>
     </body>
 </html>
