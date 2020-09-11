@@ -10,6 +10,10 @@
             var query = document.getElementById("busca").value;
             
             var xhttp = new XMLHttpRequest();
+
+            //Revisar no cores...
+            //xhttp.setRequestHeader('Access-Control-Allow-Origin', 'https://api.duckduckgo.com');
+
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
                     apiMessage = JSON.parse(this.responseText); //importa o arquivo texto inteiro em um único string
@@ -18,6 +22,7 @@
                     
                 }
             };
+            
             xhttp.open("GET", "https://api.duckduckgo.com/?format=json&pretty=1&q=" + query, true);
             xhttp.send();
             
@@ -32,6 +37,8 @@
             pTag.innerText = firstText;
             
             document.getElementById("resposta").appendChild(pTag);
+
+            document.getElementById("abs").innerHTML = resp["Abstract"];
 
         }
         
@@ -49,6 +56,7 @@
     <input type="search" id="busca" placeholder="O que você quer saber?" required></input>
     <button onclick="callApi();">Get data</button>
     <div id="resposta"></div>
+    <p id="abs"></p>
     <pre id="jsonData"></pre>
     </body>
 </html>

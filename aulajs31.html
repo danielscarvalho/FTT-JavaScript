@@ -3,28 +3,29 @@
 <head>
 <title>JavaScript Aula 31</title>    
 <script>
-function getImage() {
 
-    console.log("getting image...");
+        function getImage() {
 
-    var myImage = document.getElementById('imgplace');
+            console.log("getting image...");
 
-    var myHeaders = new Headers();
+            var myImage = document.getElementById('imgplace');
 
-    var myInit = { method: 'GET',
-               headers: myHeaders,
-               mode: 'cors',
-               cache: 'default' };
+            var myHeaders = new Headers(); //HEADER http
 
-    fetch('https://picsum.photos/200/300', myInit)
-        .then(function(response) {
-            return response.blob();
-        })
-        .then(function(myBlob) {
-            var objectURL = URL.createObjectURL(myBlob);
-            myImage.src = objectURL;
-        });
-} //getImage
+            var myInit = { method: 'GET',
+                    headers: myHeaders,
+                    mode: 'cors',
+                    cache: 'default' };
+
+            fetch('https://picsum.photos/200/300', myInit) //AJAX
+                .then(function(response) {
+                    return response.blob();
+                })
+                .then(function(myBlob) {
+                    var objectURL = URL.createObjectURL(myBlob);
+                    myImage.src = objectURL;
+                });
+        } //getImage
 
 </script>
 </head>

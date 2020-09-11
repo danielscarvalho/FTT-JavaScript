@@ -8,28 +8,31 @@
         function loadCsv() {
             
             var xhttp = new XMLHttpRequest();
+
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
                     csvData = this.responseText; //importa o arquivo texto inteiro em um único string
                     createDataTable(csvData.split('\r')); //quebra o string em um array conforme final de linha
                 }
             };
+
             xhttp.open("GET", "data/FL_insurance_sample2.csv", true);
             xhttp.send();
         }
         
-        function createDataTable(data) {
+        function createDataTable(data) { //Lista com os registros em cada linha
             
             var dadosDiv = document.getElementById("dados");
             
             var tableTag = document.createElement("table");
                 
             for (let linha of data) {
-                
+            //TODO: Incluir o th -> header
                registros = linha.split(',');
                var trTag = document.createElement("tr");
                 
                for (let reg of registros) {
+
                   var tdTag = document.createElement("td");
                   tdTag.innerHTML = reg;
                   trTag.appendChild(tdTag); 

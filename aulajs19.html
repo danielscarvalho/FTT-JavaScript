@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-
+<!-- user no browser http://localhost:5500  para a chamada de api funcionar-->
 <head>
     <title>JavaScript Aula 19</title>
     <script>
@@ -12,6 +12,7 @@
         function createNews(nData) {
 
             for (i in nData.articles) {
+                
                 var a = document.createElement("ARTICLE"); // Create a <ARTICLE> element
                 a.setAttribute("class", "card");
 
@@ -118,6 +119,7 @@
                 <option value="robots">Robots</option>
                 <option value="hackers">Hackers</option>
                 <option value="bitcoin" selected>Bitcoin</option>
+                <option value="corinthians" selected>Corinthians</option>
             </select>
         </p>
     </header>
